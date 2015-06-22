@@ -1,0 +1,41 @@
+* {
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+
+body {
+  background-color: #353434;
+}
+
+.ace_editor {
+  height: 350px;
+}
+
+.btn-custom {
+  background-color: #070808;
+  border-color: #070808;
+  color: #cccfd5;
+}
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active,
+.btn-custom.active {
+  background-color: #000000;
+  border-color: #000000;
+}
+.btn-custom.disabled:hover,
+/*.btn-custom.disabled:focus,*/
+.btn-custom.disabled:active,
+.btn-custom.disabled.active,
+.btn-custom[disabled]:hover,
+/*.btn-custom[disabled]:focus,*/
+.btn-custom[disabled]:active,
+.btn-custom[disabled].active,
+fieldset[disabled] .btn-custom:hover,
+/*fieldset[disabled] .btn-custom:focus,*/
+fieldset[disabled] .btn-custom:active,
+fieldset[disabled] .btn-custom.active {
+  background-color: #070808;
+  border-color: #070808;
+}

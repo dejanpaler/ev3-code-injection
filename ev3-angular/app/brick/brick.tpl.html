@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-12">
+    <button type="button" class="btn btn-custom btn-sm active" data-ng-click="vm.runScript()">
+      <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Run
+    </button>
+    <button type="button" class="btn btn-custom btn-sm active" data-ng-click="vm.stopScript()">
+      <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
+    </button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-7">
+    <!--<span class="label label-default">Script</span>-->
+    <div ui-ace="vm.editorOptions" ng-model="vm.editorValue"></div>
+  </div>
+  <div class="col-sm-5">
+    <!--<span class="label label-default">Status</span>-->
+    <div ui-ace="vm.statusOptions" ng-model="vm.statusValue"></div>
+  </div>
+</div>
