@@ -22,9 +22,9 @@ Angular project is node.js based. Please refer to the ev3-angular/README.md file
 Brick project is maven based. Lejos libraries are not deployed to the central maven repo and they need to be added 
 manually.
 
- - Download the Lejos library from official page http://www.lejos.org/ev3.php
- - Version used in this project is 0.9.0-beta. 
- - Add it to local maven repository 
+ * Download the Lejos library from official page http://www.lejos.org/ev3.php
+ * Version used in this project is 0.9.0-beta. 
+ * Add it to local maven repository 
 
  ```
   mvn install:install-file -Dfile=<path-to-ev3classes.jar> -DgroupId=lejos -DartifactId=ev3classes -Dversion=0.9.0-beta -Dpackaging=jar
@@ -34,18 +34,18 @@ manually.
   mvn install:install-file -Dfile=<path-to-dbusjava.jar> -DgroupId=org.freedesktop.dbus -DartifactId=dbus-java -Dversion=2.7 -Dpackaging=jar
  ```
 
- - Build the project
+ * Build the project
 
  ```
   mvn clean install
   ```
 
- - Run the server
-  -- Brick server can be started on local machine 
+ * Run the server
+   * Brick server can be started on local machine 
  
  ```
   java -jar ev3-brick.jar
  ```
 
-  -- Upload the ev3-brick.jar to the device sample folder and it can be executed through the Lejos menu.
+   * Upload the ev3-brick.jar to the device sample folder and it can be executed through the Lejos menu.
 
