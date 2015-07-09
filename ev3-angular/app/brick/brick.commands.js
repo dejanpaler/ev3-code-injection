@@ -14,10 +14,16 @@
       runScript: runScript,
       stopScript: stopScript,
       editorLoaded: editorLoaded,
-      statusLoaded: statusLoaded
+      statusLoaded: statusLoaded,
+      clearStatus: clearStatus,
+      reconnect: reconnect
     };
 
     return service;
+
+    function clearStatus() {
+      brickStatus.setValue('');
+    }
 
     function runScript() {
       var command = {
@@ -29,10 +35,19 @@
     }
 
     function stopScript() {
-      var command = {
-        action: 'stop'
-      };
       logInfo('Stopping script...');
+      sendCommand('stop');
+    }
+
+    function reconnect() {
+      logInfo('Reconnecting to the server...');
+      sendCommand('reconnect');
+    }
+
+    function sendCommand(action) {
+      var command = {
+        action: action
+      };
       brickEndpoint.sendCommand(command);
     }
 

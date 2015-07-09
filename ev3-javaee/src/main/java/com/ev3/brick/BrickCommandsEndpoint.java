@@ -31,7 +31,7 @@ public class BrickCommandsEndpoint {
     BrickClientEndpoint brickEndpoint;
 
     @PostConstruct
-    public void addBrickMessageHandler(){
+    public void addBrickMessageHandler() {
         brickEndpoint.addMessageHandler(new BrickMessages(this));
     }
 
@@ -49,28 +49,34 @@ public class BrickCommandsEndpoint {
     @OnMessage
     public void execute(String command) throws IOException {
         final JsonObject jsonCommand = Json.createReader(new StringReader(command))
-                                          .readObject();
+                                           .readObject();
         final String action = jsonCommand.getString("action");
 
-        // Send command to the device
-        brickEndpoint.sendCommand(jsonCommand.toString());
+        if("reconnect".equals(action)){
+            brickEndpoint.connectBrickEndpoint();
+        }else{
+            // Send command to the device
+            brickEndpoint.sendCommand(jsonCommand.toString());
+        }
 
         // Send response to the web client
         this.webSession.getBasicRemote()
-                    .sendText("[ev3.javaee] Message received with action " + action + ".");
+                       .sendText("[ev3.javaee] Message received with action " + action + ".");
     }
 
-    public void sendMessage(String message){
-        webSessions.stream().forEach(session -> {
-            try {
-                session.getBasicRemote().sendText(message);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
+    public void sendMessage(String message) {
+        webSessions.stream()
+                   .forEach(session -> {
+                       try {
+                           session.getBasicRemote()
+                                  .sendText(message);
+                       } catch (IOException e) {
+                           e.printStackTrace();
+                       }
+                   });
     }
 
-    @Schedule(second = "*/15", minute = "*", hour = "*")
+    @Schedule(second = "*/30", minute = "*", hour = "*", persistent = false)
     public void sendAlive() throws IOException {
         sendMessage("[ev3.javaee] Server is alive");
     }

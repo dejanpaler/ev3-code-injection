@@ -10,6 +10,8 @@
 
     vm.runScript = brickCommands.runScript;
     vm.stopScript = brickCommands.stopScript;
+    vm.clearStatus = brickCommands.clearStatus;
+    vm.reconnect = brickCommands.reconnect;
 
     vm.editorOptions = {
       theme: 'twilight',

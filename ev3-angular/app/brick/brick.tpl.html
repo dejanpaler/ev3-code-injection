@@ -1,10 +1,18 @@
 <div class="row">
-  <div class="col-sm-12">
+  <div class="col-sm-7">
     <button type="button" class="btn btn-custom btn-sm active" data-ng-click="vm.runScript()">
       <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Run
     </button>
     <button type="button" class="btn btn-custom btn-sm active" data-ng-click="vm.stopScript()">
       <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
+    </button>
+  </div>
+  <div class="col-sm-5">
+    <button type="button" class="btn btn-custom btn-sm active" data-ng-click="vm.clearStatus()">
+      <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Clear
+    </button>
+    <button type="button" class="btn btn-custom btn-sm active pull-right" data-ng-click="vm.reconnect()">
+      <span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Reconnect
     </button>
   </div>
 </div>

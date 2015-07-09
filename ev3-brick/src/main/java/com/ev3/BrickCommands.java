@@ -31,6 +31,9 @@ public class BrickCommands extends AbstractReceiveListener {
             final String script = jsonCommand.getString("script");
             runNashornScript(script);
         }
+        if("stop".equals(action)){
+            System.exit(0);
+        }
     }
 
     private void runNashornScript(String script) {
